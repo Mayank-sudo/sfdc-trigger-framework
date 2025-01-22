@@ -4,6 +4,10 @@ public virtual class TriggerHandler {
   private static Map<String, LoopCount> loopCountMap;
   private static Set<String> bypassedHandlers;
 
+
+
+
+
   // the current context of the trigger, overridable in tests
   @TestVisible
   private TriggerContext context;
@@ -225,6 +229,25 @@ public virtual class TriggerHandler {
       this.max = max;
     }
   }
+
+private void log(String message) {
+System.debug(message)
+}
+
+log('Running Context: ' this.context);
+
+protech virtual void beforeInsert() {
+log('before insert logic');
+}
+
+protected virtual void beforeInsert() {
+log('before Insert logic')
+}
+
+protected virtual void beforeUpdate() {
+log('after update lofgic')
+}
+
 
   // possible trigger contexts
   @TestVisible
